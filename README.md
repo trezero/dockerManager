@@ -36,5 +36,22 @@ Notes:
 - `run.ps1` bootstraps a `.venv`, installs `requirements.txt`, then runs the app.
 - Pass any CLI args after `--` to avoid PowerShell parsing issues.
 
+## GUI (Desktop dashboard)
+A modern, clean GUI built with CustomTkinter is available.
+
+```powershell
+# From the dockerManager directory
+./run.ps1 gui            # launch GUI dashboard
+
+# or via Python directly
+python -m docker_manager gui
+```
+
+GUI Tabs:
+- Dashboard: engine status, detected VHDX paths, start engine
+- Actions: usage, safe prune, prune all build cache, remove unused images
+- Compact: select targets, optional zero-fill, run compaction (Admin required)
+- Schedule: create monthly Scheduled Task (Admin required)
+
 ## Safety
 Operations are conservative by default. Destructive actions prompt for confirmation unless `--yes` is provided.

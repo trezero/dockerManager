@@ -406,3 +406,13 @@ def menu() -> None:
 
 if __name__ == "__main__":
     app()
+    
+@app.command()
+def gui() -> None:
+    """Launch the GUI dashboard (CustomTkinter)."""
+    try:
+        from .gui import run_gui
+    except ImportError as e:
+        console.print("[red]GUI dependencies missing. Run:[/red] pip install customtkinter")
+        raise typer.Exit(1)
+    run_gui()
